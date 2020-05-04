@@ -18,14 +18,16 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
-        documentDirURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
-        fileURL = documentDirURL.appendingPathComponent(fileName).appendingPathExtension("fedex")
-        print("FilePath: \(fileURL.path)")
+        initFilePaths()
         createFileForSharing()
         
     }
     
+    func initFilePaths() {
+        documentDirURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+        fileURL = documentDirURL.appendingPathComponent(fileName).appendingPathExtension("fedex")
+        print("FilePath: \(fileURL.path)")
+    }
     func createFileForSharing() {
         
         guard let fileURL = fileURL else {
@@ -33,7 +35,7 @@ class ViewController: UIViewController {
             return
         }
         
-        //        let writeString = "json file"
+        //sample json file created from trip json.
         let writeString = """
                         {
                            "mobilityTripKey":[
@@ -74,6 +76,8 @@ class ViewController: UIViewController {
         }
     }
     
+    // this method is not used
+    // method used to read data from the file created.
     func readFileForSharing() -> String! {
         
         guard let fileURL = fileURL else {
@@ -130,6 +134,7 @@ class ViewController: UIViewController {
         let controller = UIActivityViewController(activityItems: [itemSource], applicationActivities: nil)
         
         self.present(controller, animated: true, completion: nil)
+        
     }
 }
 

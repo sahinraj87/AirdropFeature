@@ -18,8 +18,7 @@ class AirDropOnlySource: NSObject, UIActivityItemSource {
     }
 
     func activityViewControllerPlaceholderItem(_ activityViewController: UIActivityViewController) -> Any {
-        //using NSURL here, since URL with an empty string would crash
-        return NSURL(string: "")!
+         return NSURL(string: "")!
     }
 
     func activityViewController(_ activityViewController: UIActivityViewController, itemForActivityType activityType: UIActivity.ActivityType?) -> Any? {
