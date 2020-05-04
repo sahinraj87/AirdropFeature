@@ -16,8 +16,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QME-My-Fdk">
-                                <rect key="frame" x="126" y="274" width="162" height="30"/>
+                                <rect key="frame" x="61" y="246" width="293" height="76"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <state key="normal" title="Share using Airdrop"/>
                                 <connections>
                                     <action selector="shareButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="z7H-oh-1F3"/>

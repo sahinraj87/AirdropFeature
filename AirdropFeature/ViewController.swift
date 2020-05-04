@@ -28,6 +28,7 @@ class ViewController: UIViewController {
         fileURL = documentDirURL.appendingPathComponent(fileName).appendingPathExtension("fedex")
         print("FilePath: \(fileURL.path)")
     }
+    
     func createFileForSharing() {
         
         guard let fileURL = fileURL else {
