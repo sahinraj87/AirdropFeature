@@ -13,6 +13,7 @@
 		76E64B40245F2C13001B8270 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76E64B3E245F2C13001B8270 /* Main.storyboard */; };
 		76E64B42245F2C14001B8270 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76E64B41245F2C14001B8270 /* Assets.xcassets */; };
 		76E64B45245F2C14001B8270 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76E64B43245F2C14001B8270 /* LaunchScreen.storyboard */; };
+		76E64B5024606BB7001B8270 /* AirDropOnlySource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E64B4F24606BB7001B8270 /* AirDropOnlySource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		76E64B41245F2C14001B8270 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		76E64B44245F2C14001B8270 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		76E64B46245F2C14001B8270 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		76E64B4F24606BB7001B8270 /* AirDropOnlySource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirDropOnlySource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				76E64B41245F2C14001B8270 /* Assets.xcassets */,
 				76E64B43245F2C14001B8270 /* LaunchScreen.storyboard */,
 				76E64B46245F2C14001B8270 /* Info.plist */,
+				76E64B4F24606BB7001B8270 /* AirDropOnlySource.swift */,
 			);
 			path = AirdropFeature;
 			sourceTree = "<group>";
@@ -140,6 +143,7 @@
 			files = (
 				76E64B3D245F2C13001B8270 /* ViewController.swift in Sources */,
 				76E64B39245F2C13001B8270 /* AppDelegate.swift in Sources */,
+				76E64B5024606BB7001B8270 /* AirDropOnlySource.swift in Sources */,
 				76E64B3B245F2C13001B8270 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -291,7 +295,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.sahinraj.AirdropFeature;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sahinraj.net.AirdropFeature;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -302,6 +306,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 69269BVT58;
 				INFOPLIST_FILE = AirdropFeature/Info.plist;
@@ -309,8 +314,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.sahinraj.AirdropFeature;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sahinraj.net.AirdropFeature;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
