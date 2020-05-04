@@ -14,6 +14,7 @@
 		76E64B42245F2C14001B8270 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76E64B41245F2C14001B8270 /* Assets.xcassets */; };
 		76E64B45245F2C14001B8270 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76E64B43245F2C14001B8270 /* LaunchScreen.storyboard */; };
 		76E64B5024606BB7001B8270 /* AirDropOnlySource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E64B4F24606BB7001B8270 /* AirDropOnlySource.swift */; };
+		76E64B5224607D99001B8270 /* Trips.json in Resources */ = {isa = PBXBuildFile; fileRef = 76E64B5124607D99001B8270 /* Trips.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		76E64B44245F2C14001B8270 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		76E64B46245F2C14001B8270 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		76E64B4F24606BB7001B8270 /* AirDropOnlySource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirDropOnlySource.swift; sourceTree = "<group>"; };
+		76E64B5124607D99001B8270 /* Trips.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Trips.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,14 +60,15 @@
 		76E64B37245F2C13001B8270 /* AirdropFeature */ = {
 			isa = PBXGroup;
 			children = (
+				76E64B5124607D99001B8270 /* Trips.json */,
 				76E64B38245F2C13001B8270 /* AppDelegate.swift */,
 				76E64B3A245F2C13001B8270 /* SceneDelegate.swift */,
 				76E64B3C245F2C13001B8270 /* ViewController.swift */,
+				76E64B4F24606BB7001B8270 /* AirDropOnlySource.swift */,
 				76E64B3E245F2C13001B8270 /* Main.storyboard */,
 				76E64B41245F2C14001B8270 /* Assets.xcassets */,
 				76E64B43245F2C14001B8270 /* LaunchScreen.storyboard */,
 				76E64B46245F2C14001B8270 /* Info.plist */,
-				76E64B4F24606BB7001B8270 /* AirDropOnlySource.swift */,
 			);
 			path = AirdropFeature;
 			sourceTree = "<group>";
@@ -128,6 +131,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76E64B5224607D99001B8270 /* Trips.json in Resources */,
 				76E64B45245F2C14001B8270 /* LaunchScreen.storyboard in Resources */,
 				76E64B42245F2C14001B8270 /* Assets.xcassets in Resources */,
 				76E64B40245F2C13001B8270 /* Main.storyboard in Resources */,

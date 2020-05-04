@@ -22,22 +22,50 @@ class ViewController: UIViewController {
         documentDirURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
         fileURL = documentDirURL.appendingPathComponent(fileName).appendingPathExtension("fedex")
         print("FilePath: \(fileURL.path)")
-        
         createFileForSharing()
-        
-        readFileForSharing()
         
     }
     
     func createFileForSharing() {
-        // Save data to file
         
         guard let fileURL = fileURL else {
             print("file URL not init")
             return
         }
         
-        let writeString = "new data in custom file for sharing sample"
+        //        let writeString = "json file"
+        let writeString = """
+                        {
+                           "mobilityTripKey":[
+                              {
+                                 "aircraft":"57",
+                                 "base":"EUR57",
+                                 "operatingDate":"2016-11-22T00:00:00Z",
+                                 "operatingDateLBT":"2016-11-22T01:00:00Z",
+                                 "tripNumber":"33",
+                                 "tripType":"REG"
+                              },
+                              {
+                                 "aircraft":"57",
+                                 "base":"EUR57",
+                                 "operatingDate":"2016-12-06T00:00:00Z",
+                                 "operatingDateLBT":"2016-12-06T01:00:00Z",
+                                 "tripNumber":"34",
+                                 "tripType":"REG"
+                              },
+                              {
+                                 "aircraft":"57",
+                                 "base":"EUR57",
+                                 "operatingDate":"2016-11-27T00:00:00Z",
+                                 "operatingDateLBT":"2016-11-27T01:00:00Z",
+                                 "tripNumber":"48",
+                                 "tripType":"LCA"
+                              }
+                           ]
+                        }
+
+                        """
+        
         do {
             // Write to the file
             try writeString.write(to: fileURL, atomically: true, encoding: String.Encoding.utf8)
@@ -46,21 +74,48 @@ class ViewController: UIViewController {
         }
     }
     
-    func readFileForSharing() {
+    func readFileForSharing() -> String! {
         
         guard let fileURL = fileURL else {
             print("file URL not init")
-            return
+            return nil
         }
         
-        var readString = "" // Used to store the file contents
+        var readString: String!
+        
         do {
             // Read the file contents
             readString = try String(contentsOf: fileURL)
+            
         } catch let error as NSError {
             print("Failed reading from URL: \(fileURL), Error: " + error.localizedDescription)
         }
-        print("File Text: \(readString)")
+        guard let resultString = readString else {
+            print("Error in readFileForSharing()")
+            return nil
+        }
+        print("File Text: \(resultString)")
+        return resultString
+        
+    }
+    
+    func createJsonObject(with stringParam: String) -> [Dictionary<String, Any>]! {
+        
+        let string = stringParam
+        let data = string.data(using: .utf8)!
+        do {
+            if let jsonArray = try JSONSerialization.jsonObject(with: data, options : .allowFragments) as? [Dictionary<String,Any>]
+            {
+                print(jsonArray) // use the json here
+                return jsonArray
+            } else {
+                print("bad json")
+                return nil
+            }
+        } catch let error as NSError {
+            print(error)
+            return nil
+        }
         
     }
     @IBAction func shareButtonTapped(_ sender: UIButton) {
@@ -73,14 +128,9 @@ class ViewController: UIViewController {
         let itemSource = AirDropOnlySource(item: fileURL)
         
         let controller = UIActivityViewController(activityItems: [itemSource], applicationActivities: nil)
-        controller.excludedActivityTypes = [.postToFacebook, .postToTwitter, .print, .copyToPasteboard,
-                                            .assignToContact, .saveToCameraRoll, .mail, .postToVimeo]
         
         self.present(controller, animated: true, completion: nil)
-        
     }
-    
-    
 }
 
 
