@@ -30,8 +30,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneDidBecomeActive(_ scene: UIScene) {
         // Called when the scene has moved from an inactive state to an active state.
         // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
+    
     }
-
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        //print(URLContexts.debugDescription)
+        let url = URLContexts.first!.url as NSURL
+        NotificationCenter.default.post(name: Notification.Name("openFileURLAirdrop"), object: nil, userInfo: ["fileurl":url])
+    }
     func sceneWillResignActive(_ scene: UIScene) {
         // Called when the scene will move from an active state to an inactive state.
         // This may occur due to temporary interruptions (ex. an incoming phone call).

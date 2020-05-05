@@ -18,7 +18,7 @@ class AirDropOnlySource: NSObject, UIActivityItemSource {
     }
 
     func activityViewControllerPlaceholderItem(_ activityViewController: UIActivityViewController) -> Any {
-         //return NSURL(string: "com.fedex.cis.mobile.vector")!
+         //return NSURL(string: "com.sahinraj.net.AirdropFeature")!
         return NSURL(string: "")!
     }
 

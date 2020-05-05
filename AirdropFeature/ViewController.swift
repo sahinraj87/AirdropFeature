@@ -14,6 +14,10 @@ class ViewController: UIViewController {
     let fileName = "FlightReleaseMaster"
     var documentDirURL: URL!
     var fileURL: URL!
+    static let openFileURLAirdrop = Notification.Name("openFileURLAirdrop")
+    
+    
+    @IBOutlet weak var recievedFileTextView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,11 +81,11 @@ class ViewController: UIViewController {
         }
     }
     
-    // this method is not used
+    
     // method used to read data from the file created.
-    func readFileForSharing() -> String! {
+    func readFileForSharing(url: URL!) -> String! {
         
-        guard let fileURL = fileURL else {
+        guard let fileURL = url else {
             print("file URL not init")
             return nil
         }
@@ -91,6 +95,7 @@ class ViewController: UIViewController {
         do {
             // Read the file contents
             readString = try String(contentsOf: fileURL)
+            recievedFileTextView.text = readString
             
         } catch let error as NSError {
             print("Failed reading from URL: \(fileURL), Error: " + error.localizedDescription)
@@ -136,6 +141,20 @@ class ViewController: UIViewController {
         
         self.present(controller, animated: true, completion: nil)
         
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(self.onNotification(notification:)),
+                                               name: ViewController.openFileURLAirdrop,
+                                               object: nil)
+        
+    }
+    @objc func onNotification(notification: Notification) {
+        print(notification)
+        
+        var url = notification.userInfo?["fileurl"] as? URL
+        readFileForSharing(url: url)
     }
 }
 
